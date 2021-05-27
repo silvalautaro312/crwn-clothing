@@ -9,22 +9,27 @@ import SignInAndSignUpPage from './pages/sign-in-and-sing-up/sign-in-and-sing-up
 import Header from './components/header/header.component'; 
 import { auth } from './firebase/firebase.utils';
 
-
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
       currentUser: null
-    }
+    };
   }
+
+  unsubscribeFromAuth = null
 
   componentDidMount() {
     auth.onAuthStateChanged(user => {
       this.setState({ currentUser: user });
 
       console.log(user);
-    })
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
   }
 
   render() {
