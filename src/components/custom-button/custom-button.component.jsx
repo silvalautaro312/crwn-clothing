@@ -10,7 +10,7 @@ const CustomButton = ({
 }) => (
     <button 
     className={`${inverted ? 'inverted' : ''} ${
-        isGoogleSignIn ? 'google-sign-in' : ''
+         isGoogleSignIn ? 'google-sign-in' : ''
         } custom-button`} 
         {...otherProps}
     >
